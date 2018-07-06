@@ -6,7 +6,7 @@ import TwitchLogo from './styles/images/twitch_logo_mono_dark.png'
 import SpotifyLogo from './styles/images/spotify_logo_mono_dark.png'
 import HBOGOLogo from './styles/images/hbogo_logo_mono_dark.svg'
 import PlexLogo from './styles/images/plex_logo_mono_dark.png'
-
+import TileGrid from './components/TileGrid'
 class App extends Component {
   constructor (props) {
     super(props)
@@ -32,7 +32,7 @@ class App extends Component {
         { className: 'spotify', name: 'Spotify' },
         { className: 'games', name: 'Games' },
         { className: 'browser', name: 'Browser' },
-        { className: 'tv', name: 'TV' }
+        { className: 'tv', name: 'TV', description: <TileGrid /> }
       ]
     }
   }
@@ -44,7 +44,7 @@ class App extends Component {
     })
   }
 
-  render() {
+  render () {
     const settings = {
       arrows: false,
       infinite: true,
@@ -60,7 +60,6 @@ class App extends Component {
     const settingsSubSlider = {
       arrows: false,
       infinite: true,
-      fade: true,
       speed: 35,
       slidesToShow: 1,
       slidesToScroll: 1,
@@ -91,7 +90,7 @@ class App extends Component {
                 {this.state.subSlides.map(({ name, description, className, ...rest }) => (
                   <div key={name} className={classNames('slide', className)} >
                     <h1>{name}</h1>
-                    <div dangerouslySetInnerHTML={{ __html: description }} />
+                    {description}
                   </div>
                 ))}
               </Slider>

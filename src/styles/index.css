@@ -2,6 +2,10 @@
 @import "~slick-carousel/slick/slick-theme.css";
 @import "~bootstrap-4-grid/css/grid.css";
 
+* {
+  box-sizing: border-box;
+}
+
 html {
   font-size: 18px;
 }
@@ -101,7 +105,8 @@ body:before {
 }
 
 .slide .slide-content .logo { 
-  height: 30%;
+  max-height: 30%;
+  max-width: 70%;
   margin: 0 auto;
 }
 
@@ -156,4 +161,33 @@ body:before {
 
 .slide p:last-child {
   margin-bottom: 0;
+}
+
+.tile-grid {
+  display: flex;
+  flex-direction: column;
+}
+
+.tile-grid .tile-group {
+  display: flex;
+  flex-direction: row;
+}
+
+.tile-grid .tile {
+  flex-grow: 1;
+  flex-basis: 0;
+  margin: 1rem;
+  height: 12rem;
+  background: #efefff;
+  border: 0.5rem solid #fff;
+  padding: 10px;
+  text-align: center;
+  line-height: 12rem;
+  color: #2b2b2b;
+  transition: all .15s ease;
+  border-radius: 0.2rem;
+}
+
+.tile-grid .active {
+  transform: scale(1.2)
 }
